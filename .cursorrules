@@ -1,0 +1,54 @@
+{
+  "microservices": {
+    "paths": [
+      "services/*"
+    ],
+    "rules": {
+      "api": {
+        "baseUrl": "https://api.zibal.ir/v1",
+        "patterns": [
+          "services/api/**/*.ts"
+        ]
+      },
+      "models": {
+        "patterns": [
+          "services/models/**/*.ts"
+        ]
+      },
+      "controllers": {
+        "patterns": [
+          "services/controllers/**/*.ts"
+        ]
+      },
+      "validators": {
+        "patterns": [
+          "services/validators/**/*.ts"
+        ]
+      }
+    }
+  },
+  "shared": {
+    "paths": [
+      "shared/*"
+    ]
+  },
+  "dependencies": {
+    "rules": {
+      "allowedDependencies": {
+        "services/*": [
+          "lib/*"
+        ]
+      },
+      "forbiddenDependencies": {
+        "services/*": [
+          "services/*"
+        ]
+      }
+    }
+  },
+  "naming": {
+    "services": "^[a-z]+(-service)?$",
+    "controllers": "^[A-Z][a-zA-Z]+Controller$",
+    "models": "^[A-Z][a-zA-Z]+$"
+  }
+} 
